@@ -1,0 +1,9 @@
+{
+    "include": [
+        "src/*.jsx"
+    ],
+    "compileOnSave": false,
+    "exclude": [
+        "**/node_modules/**"
+    ]
+}
