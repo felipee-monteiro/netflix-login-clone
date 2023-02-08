@@ -61,12 +61,14 @@ function App () {
                 </Heading>
               </CardHeader>
               <CardBody>
-                <form onSubmit={handleSubmit(console.log)}>
+                <form onSubmit={handleSubmit()} action='#'>
                   <FormControl isInvalid={errors.email || errors.password}>
                     <VStack spacing={50}>
                       <VStack spacing={3.5} w='80' align=''>
                         <Input
                           type='email'
+                          id='email'
+                          autoComplete='off'
                           placeholder='E-mail ou número de telefone'
                           bg='gray.700'
                           autoFocus={true}
@@ -90,6 +92,7 @@ function App () {
                           placeholder='Senha'
                           size='lg'
                           bg='gray.700'
+                          id='password'
                           color='white'
                           errorBorderColor='orange.500'
                           focusBorderColor='orange.500'
@@ -120,7 +123,11 @@ function App () {
                           Entrar
                         </Button>
                         <Flex justify='space-between'>
-                          <Checkbox defaultChecked colorScheme='gray' iconColor='black' errorBorder='Background'>
+                          <Checkbox
+                            defaultChecked
+                            colorScheme='gray'
+                            iconColor='black'
+                          >
                             <Text color='gray.400' fontSize='sm'>
                               Lembre-se de mim
                             </Text>
