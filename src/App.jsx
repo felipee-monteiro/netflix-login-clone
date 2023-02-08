@@ -48,7 +48,7 @@ function App () {
           </Flex>
           <Center w='100%'>
             <Card
-              p='2.8rem'
+              p={14}
               w='100%'
               maxW='md'
               bg='blackAlpha.900'
@@ -58,7 +58,7 @@ function App () {
               top='16'
             >
               <CardHeader>
-                <Heading size='lg' color='white'>
+                <Heading size='lg' mx='-3' color='white'>
                   Entrar
                 </Heading>
               </CardHeader>
