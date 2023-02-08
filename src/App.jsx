@@ -61,7 +61,7 @@ function App () {
                 </Heading>
               </CardHeader>
               <CardBody>
-                <form onSubmit={handleSubmit} action='#'>
+                <form onSubmit={handleSubmit()} action='#'>
                   <FormControl isInvalid={errors.email || errors.password}>
                     <VStack spacing={50}>
                       <VStack spacing={3.5} w='80' align=''>
