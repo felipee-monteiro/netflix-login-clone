@@ -41,13 +41,20 @@ function App () {
               fit='cover'
             />
           </Flex>
-          <Flex w='100%' h={200} top='0' pos='absolute'>
+          <Flex w='100%' h={16} top='0' pos='absolute'>
             <Link href='https://netflix.com/pt'>
               <img src='nt.png' width={180} />
             </Link>
           </Flex>
           <Center w='100%'>
-            <Card p='14' bg='blackAlpha.900' h='2xl' mt={6} pos='absolute' top='16'>
+            <Card
+              p='14'
+              bg='blackAlpha.900'
+              h='2xl'
+              mt={6}
+              pos='absolute'
+              top='16'
+            >
               <CardHeader>
                 <Heading as='h2' size='lg' color='white'>
                   Entrar
@@ -59,18 +66,24 @@ function App () {
                     <VStack spacing={50}>
                       <VStack spacing={3.5} w='80' align=''>
                         <Input
+                          type='email'
                           placeholder='E-mail ou número de telefone'
                           bg='gray.700'
                           autoFocus={true}
                           size='lg'
                           color='white'
+                          errorBorderColor='orange.500'
+                          focusBorderColor='orange.500'
                           border='Background'
                           {...register('email', {
-                            required: 'E-mail Obrigatório.'
+                            required:
+                              'Informe um email ou número de telefone válido.'
                           })}
                         />
                         <FormErrorMessage>
-                          {errors.email && errors.email.message}
+                          <Text color='orange.500'>
+                            {errors.email && errors.email.message}
+                          </Text>
                         </FormErrorMessage>
                         <Input
                           type='password'
@@ -78,13 +91,20 @@ function App () {
                           size='lg'
                           bg='gray.700'
                           color='white'
+                          errorBorderColor='orange.500'
+                          focusBorderColor='orange.500'
                           border='Background'
                           {...register('password', {
-                            required: 'Senha Obrigatória.'
+                            minLength: 4,
+                            required:
+                              'A senha deve ter entre 4 e 60 caracteres.',
+                            maxLength: 60
                           })}
                         />
                         <FormErrorMessage>
-                          {errors.password && errors.password.message}
+                          <Text color='orange.500'>
+                            {errors.password && errors.password.message}
+                          </Text>
                         </FormErrorMessage>
                       </VStack>
                       <VStack spacing={2} align='' w='80'>
@@ -100,7 +120,7 @@ function App () {
                           Entrar
                         </Button>
                         <Flex justify='space-between'>
-                          <Checkbox defaultChecked>
+                          <Checkbox defaultChecked colorScheme='gray' iconColor='black' errorBorder='Background'>
                             <Text color='gray.400' fontSize='sm'>
                               Lembre-se de mim
                             </Text>
